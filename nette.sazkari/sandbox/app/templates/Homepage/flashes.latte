@@ -1,0 +1,24 @@
+{block menu}
+  <li><a href="{link Homepage:default}">Uvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+{/block}
+  
+{block content}
+  <fieldset>
+      <legend>Upozornění</legend>
+    {foreach $flashes as $flash}
+        <div class="flash {$flash->type}">{$flash->message}</div>
+    {/foreach}
+  </fieldset>
+{/block}
+        
+{block scripts}
+{include #parent}
+
+{/block}
+     
+
+{block head}
+
+{/block}

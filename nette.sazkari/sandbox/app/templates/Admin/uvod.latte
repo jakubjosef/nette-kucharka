@@ -1,0 +1,25 @@
+{layout "../@layoutAdmin.latte"}
+{block content1}
+<fieldset>
+    <legend>Úvodni strana</legend>
+    <a href="{link Admin:pridatUvod}">Přidat zprávu</a>
+    <table>
+        <thead>
+        <tr>
+            <th>Text</th>
+            <th>Datum</th>
+            <th colspan="1">&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach $uvod as $uvod1}
+            <tr>
+                <td>{!$uvod1->text}</td>
+                <td>{$uvod1->datum|date:'j.n.Y'}</td>
+                <td><a href="{link Admin:upravUvod $uvod1->id}">Upravit</a></td>
+            </tr>
+        {/foreach}
+        </tbody>
+    </table>
+</fieldset>
+{/block}

@@ -1,0 +1,28 @@
+{layout "../@layoutAdmin.latte"}
+{block content1}
+<fieldset>
+    {foreach $flashes as $flash}
+        <div class="flash {$flash->type}">{$flash->message}</div>
+    {/foreach}
+    <legend>Liga</legend>
+    <a href="{link Admin:pridatLigu}">Přidat ligu</a>
+    <table>
+        
+        <thead>
+        <tr>
+            <th>Název</th>
+            <th colspan="2">&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach $ligy as $liga}
+            <tr>
+                <td>{$liga->nazev}</td>
+                <td><a href="{link Admin:upravLigu $liga->id}">Upravit</a></td>
+                <td><a href="{link Admin:smazLigu $liga->id}" onClick="return confirm('Opravdu smazat ligu?');">Smazat</a></td>
+            </tr>
+        {/foreach}
+        </tbody>
+    </table>
+</fieldset>
+{/block}

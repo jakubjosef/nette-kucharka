@@ -1,0 +1,10 @@
+{layout "../@layoutAdmin.latte"}
+{block content1}
+<fieldset>
+    {foreach $flashes as $flash}
+        <div class="flash {$flash->type}">{$flash->message}</div>
+    {/foreach}
+    <legend>Zapomenuté heslo</legend>
+    {control zapomenuteHeslo}
+</fieldset>
+{/block}

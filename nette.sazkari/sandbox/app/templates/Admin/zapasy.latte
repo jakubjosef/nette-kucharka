@@ -1,0 +1,56 @@
+{layout "../@layoutAdmin.latte"}
+{block content1}
+<fieldset>
+    <legend>Zápasy</legend>
+    <a href="{link Admin:pridatZapas}">Přidat zápas</a>
+    <table>
+        
+        <thead>
+        <tr>
+            <th colspan="5">&nbsp;</th>
+            <th class="textcenter" colspan="2">Handicap</th>
+            <th class="textcenter" colspan="3">Výsledek</th>
+            <th colspan="2">&nbsp;</th>
+        </tr>    
+        <tr>
+            <th>Kolo</th>
+            <th>Sport</th>
+            <th>Domácí</th>
+            <th>Hosté</th>
+            <th>Datum</th>
+            <th>Domácí</th>
+            <th>Hosté</th>
+            <th>Domácí</th>
+            <th>Hosté</th>
+            <th>Celkem</th>
+            <th colspan="2">&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach $zapasy as $zapas}
+            <tr>
+                
+                <td>{$zapas->kola->nazev}</td>
+                <td>{$zapas->sporty->nazev}</td>
+                <td>{$zapas->domaci->nazev}</td>
+                <td>{$zapas->hoste->nazev}</td>
+                <td>{$zapas->datum|date:'d.m.Y'}</td>
+                <td>{$zapas->handicap_domacich}</td>
+                <td>{$zapas->handicap_hostu}</td>
+                <td>{$zapas->vysledek_domacich}</td>
+                <td>{$zapas->vysledek_hostu}</td>
+                <td>{$zapas->vysledek}</td>
+                <td><a href="{link Admin:upravZapas $zapas->id}">Upravit</a></td>
+                <td><a href="{link Admin:smazZapas $zapas->id}" onClick="return confirm('Opravdu smazat zápas?');">Smazat</a></td>
+            </tr>
+        {/foreach}
+        </tbody>
+    </table>
+    {if !$pageNavigator->first}
+    <a class="txtCenter" href="{link this, page=>$pageNavigator->page-1}"><< Předchozí  </a>
+        {/if}
+        {if !$pageNavigator->last}
+    <a class="txtCenter" href="{link this, page=>$pageNavigator->page+1}">  Další >></a>
+        {/if}
+</fieldset>
+{/block}

@@ -1,0 +1,26 @@
+{block menu}
+  <li><a href="{link Homepage:default}">Uvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+{/block}
+{block content}
+<fieldset>
+    <legend>Rozpis ligy</legend>
+    <table>
+            <thead>
+                <tr>
+                    <th colspan="10">Vyber kolo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {foreach $kola as $kolo2}
+                    <td><a href="{link Sazkari:rozpisKola $kolo2->id}">{$kolo2->nazev} </a></td>
+                    {/foreach}
+                </tr>
+            </tbody>
+            
+
+    </table>
+</fieldset>
+{/block}

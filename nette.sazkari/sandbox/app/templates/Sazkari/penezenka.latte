@@ -1,0 +1,51 @@
+{block menu}
+  <li><a href="{link Homepage:default}">Uvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+{/block}
+{block content}
+<fieldset>
+    <legend>Peněženka</legend>
+    <h2>Celkem v banku:
+    {var $celkemCena = 0}
+    {foreach $uzivatele as $uzivatel}
+            {if $uzivatel->zustatek <= 0}
+            {? $celkemCena+=-$uzivatel->zustatek}
+            {else}
+            {? $celkemCena+=$uzivatel->zustatek}
+            {/if}
+    {/foreach}
+    {$celkemCena} Kč
+    </h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Jméno:</th>
+                <th>Příjmení:</th>
+                <th>Přezdívka:</th>
+                <th>Zůstatek:</th>
+                <th>Stav:</th>
+            </tr>
+            </thead>
+            <tbody>
+            {foreach $uzivatele as $uzivatel}
+                <tr>
+                    <td>{$uzivatel->jmeno}</td>
+                    <td>{$uzivatel->prijmeni}</td>
+                    <td>{$uzivatel->nick}</td>
+                    <td>{$uzivatel->zustatek}</td>
+                    <td>
+                        {if $uzivatel->zustatek == 0}
+                            <tag class="none">-</tag>
+                        {elseif $uzivatel->zustatek < 0}
+                            <tag class="wrong">Dluží</tag>
+                        {elseif $uzivatel->zustatek > 0}
+                            <tag class="right">Nabito</tag>
+                        {/if}
+                    </td>
+                </tr>
+            {/foreach}
+            </tbody>
+        </table>
+</fieldset>
+{/block}

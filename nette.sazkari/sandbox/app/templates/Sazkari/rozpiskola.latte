@@ -1,0 +1,695 @@
+{block menu}
+  <li><a href="{link Homepage:}">Uvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+{/block}
+{block content}
+<fieldset>
+    <legend>Rozpis ligy - {$kolo->nazev}</legend>
+    <table>
+            <thead>
+                <tr>
+                    <th colspan="10">Vyber kolo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {var $i = 1}
+                    {foreach $kola as $kolo2}
+                      {if $i <= 10}
+                         <td><a href="{link Sazkari:rozpisKola $kolo2->id}">{$kolo2->nazev} </a></td>
+                      {/if}
+                    {? $i++}
+                    {/foreach}
+                </tr>
+            </tbody>
+            
+
+    </table>
+    <table>
+            <thead>
+            <tr>
+                    <th colspan="2">{$kolo->nazev}</th>
+                    <th colspan="5">{$kolo->zacatek_kola|date:'d.m.Y'} - {$kolo->konec_kola|date:'d.m.Y'}</th>
+            </tr>
+            </thead>
+            <tbody>
+                {var $a1 = 1}     
+                {var $a2 = 1}
+                {var $a3 = 1}
+                {var $a4 = 0}
+                {var $a5 = 0}
+                {var $a6 = 0}
+                {var $b1 = 1}
+                {var $b2 = 1}
+                {var $b3 = 1}
+                {var $b4 = 0}
+                {var $b5 = 0}
+                {var $b6 = 0}
+                {var $c1 = 1}
+                {var $c2 = 1}
+                {var $c3 = 1}
+                {var $c4 = 0}
+                {var $c5 = 0}
+                {var $c6 = 0}
+                {var $d1 = 1}
+                {var $d2 = 1}
+                {var $d3 = 1}
+                {var $d4 = 0}
+                {var $d5 = 0}
+                {var $d6 = 0}
+                
+{if $kolo->nazev == "1. kolo"}   
+				{var $nazevkola = "1. kolo"}
+                {var $P1 = 1}
+                {var $P2 = 6}
+                {var $P3 = 2}
+                {var $P4 = 5}
+                {var $P5 = 3}
+                {var $P6 = 4}
+                
+                {var $P7 = 7}
+                {var $P8 = 12}
+                {var $P9 = 8}
+                {var $P10 = 11}
+                {var $P11 = 9}
+                {var $P12 = 10}
+                
+                {var $P13 = 13}
+                {var $P14 = 18}
+                {var $P15 = 14}
+                {var $P16 = 17}
+                {var $P17 = 15}
+                {var $P18 = 16}
+                
+                {var $P19 = 19}
+                {var $P20 = 24}
+                {var $P21 = 20}
+                {var $P22 = 23}
+                {var $P23 = 21}
+                {var $P24 = 22}
+                
+                {var $N1 = "A1"}
+                {var $N2 = "A6"}
+                {var $N3 = "A2"}
+                {var $N4 = "A5"}
+                {var $N5 = "A3"}
+                {var $N6 = "A4"}
+                
+                {var $N7 = "B1"}
+                {var $N8 = "B6"}
+                {var $N9 = "B2"}
+                {var $N10 = "B5"}
+                {var $N11 = "B3"}
+                {var $N12 = "B4"}
+                
+                {var $N13 = "C1"}
+                {var $N14 = "C6"}
+                {var $N15 = "C2"}
+                {var $N16 = "C5"}
+                {var $N17 = "C3"}
+                {var $N18 = "C4"}
+                
+                {var $N19 = "D1"}
+                {var $N20 = "D6"}
+                {var $N21 = "D2"}
+                {var $N22 = "D5"}
+                {var $N23 = "D3"}
+                {var $N24 = "D4"}
+{/if}               
+{if $kolo->nazev == "2. kolo"} 
+{var $nazevkola = "2. kolo"}             
+                {var $P1 = 1}
+                {var $P2 = 5}
+                {var $P3 = 2}
+                {var $P4 = 4}
+                {var $P5 = 3}
+                {var $P6 = 6}
+                
+                {var $P7 = 1+6}
+                {var $P8 = 5+6}
+                {var $P9 = 2+6}
+                {var $P10 = 4+6}
+                {var $P11 = 3+6}
+                {var $P12 = 6+6}
+                
+                {var $P13 = 1+12}
+                {var $P14 = 5+12}
+                {var $P15 = 2+12}
+                {var $P16 = 4+12}
+                {var $P17 = 3+12}
+                {var $P18 = 6+12}
+                
+                {var $P19 = 1+18}
+                {var $P20 = 5+18}
+                {var $P21 = 2+18}
+                {var $P22 = 4+18}
+                {var $P23 = 3+18}
+                {var $P24 = 6+18}
+                
+                {var $N1 = "A1"}
+                {var $N2 = "A5"}
+                {var $N3 = "A2"}
+                {var $N4 = "A4"}
+                {var $N5 = "A3"}
+                {var $N6 = "A6"}
+                
+                {var $N7 = "B1"}
+                {var $N8 = "B5"}
+                {var $N9 = "B2"}
+                {var $N10 = "B4"}
+                {var $N11 = "B3"}
+                {var $N12 = "B6"}
+                
+                {var $N13 = "C1"}
+                {var $N14 = "C5"}
+                {var $N15 = "C2"}
+                {var $N16 = "C4"}
+                {var $N17 = "C3"}
+                {var $N18 = "C6"}
+                
+                {var $N19 = "D1"}
+                {var $N20 = "D5"}
+                {var $N21 = "D2"}
+                {var $N22 = "D4"}
+                {var $N23 = "D3"}
+                {var $N24 = "D6"}
+{/if}   
+{if $kolo->nazev == "3. kolo"}  
+{var $nazevkola = "3. kolo"}            
+                {var $P1 = 1}
+                {var $P2 = 4}
+                {var $P3 = 2}
+                {var $P4 = 3}
+                {var $P5 = 5}
+                {var $P6 = 6}
+                
+                {var $P7 = 1+6}
+                {var $P8 = 4+6}
+                {var $P9 = 2+6}
+                {var $P10 = 3+6}
+                {var $P11 = 5+6}
+                {var $P12 = 6+6}
+                
+                {var $P13 = 1+12}
+                {var $P14 = 4+12}
+                {var $P15 = 2+12}
+                {var $P16 = 3+12}
+                {var $P17 = 5+12}
+                {var $P18 = 6+12}
+                
+                {var $P19 = 1+18}
+                {var $P20 = 4+18}
+                {var $P21 = 2+18}
+                {var $P22 = 3+18}
+                {var $P23 = 5+18}
+                {var $P24 = 6+18}
+                
+                {var $N1 = "A1"}
+                {var $N2 = "A4"}
+                {var $N3 = "A2"}
+                {var $N4 = "A3"}
+                {var $N5 = "A5"}
+                {var $N6 = "A6"}
+                
+                {var $N7 = "B1"}
+                {var $N8 = "B4"}
+                {var $N9 = "B2"}
+                {var $N10 = "B3"}
+                {var $N11 = "B5"}
+                {var $N12 = "B6"}
+                
+                {var $N13 = "C1"}
+                {var $N14 = "C4"}
+                {var $N15 = "C2"}
+                {var $N16 = "C3"}
+                {var $N17 = "C5"}
+                {var $N18 = "C6"}
+                
+                {var $N19 = "D1"}
+                {var $N20 = "D4"}
+                {var $N21 = "D2"}
+                {var $N22 = "D3"}
+                {var $N23 = "D5"}
+                {var $N24 = "D6"}
+{/if} 
+{if $kolo->nazev == "4. kolo"} 
+{var $nazevkola = "4. kolo"}             
+                {var $P1 = 1}
+                {var $P2 = 3}
+                {var $P3 = 2}
+                {var $P4 = 6}
+                {var $P5 = 4}
+                {var $P6 = 5}
+                
+                {var $P7 = 1+6}
+                {var $P8 = 3+6}
+                {var $P9 = 2+6}
+                {var $P10 = 6+6}
+                {var $P11 = 4+6}
+                {var $P12 = 5+6}
+                
+                {var $P13 = 1+12}
+                {var $P14 = 3+12}
+                {var $P15 = 2+12}
+                {var $P16 = 6+12}
+                {var $P17 = 4+12}
+                {var $P18 = 5+12}
+                
+                {var $P19 = 1+18}
+                {var $P20 = 3+18}
+                {var $P21 = 2+18}
+                {var $P22 = 6+18}
+                {var $P23 = 4+18}
+                {var $P24 = 5+18}
+                
+                {var $N1 = "A1"}
+                {var $N2 = "A3"}
+                {var $N3 = "A2"}
+                {var $N4 = "A6"}
+                {var $N5 = "A4"}
+                {var $N6 = "A5"}
+                
+                {var $N7 = "B1"}
+                {var $N8 = "B3"}
+                {var $N9 = "B2"}
+                {var $N10 = "B6"}
+                {var $N11 = "B4"}
+                {var $N12 = "B5"}
+                
+                {var $N13 = "C1"}
+                {var $N14 = "C3"}
+                {var $N15 = "C2"}
+                {var $N16 = "C6"}
+                {var $N17 = "C4"}
+                {var $N18 = "C5"}
+                
+                {var $N19 = "D1"}
+                {var $N20 = "D3"}
+                {var $N21 = "D2"}
+                {var $N22 = "D6"}
+                {var $N23 = "D4"}
+                {var $N24 = "D5"}
+{/if}        
+{if $kolo->nazev == "5. kolo"}  
+{var $nazevkola = "5. kolo"}            
+                {var $P1 = 1}
+                {var $P2 = 2}
+                {var $P3 = 3}
+                {var $P4 = 5}
+                {var $P5 = 4}
+                {var $P6 = 6}
+                
+                {var $P7 = 1+6}
+                {var $P8 = 2+6}
+                {var $P9 = 3+6}
+                {var $P10 = 5+6}
+                {var $P11 = 4+6}
+                {var $P12 = 6+6}
+                
+                {var $P13 = 1+12}
+                {var $P14 = 2+12}
+                {var $P15 = 3+12}
+                {var $P16 = 5+12}
+                {var $P17 = 4+12}
+                {var $P18 = 6+12}
+                
+                {var $P19 = 1+18}
+                {var $P20 = 2+18}
+                {var $P21 = 3+18}
+                {var $P22 = 5+18}
+                {var $P23 = 4+18}
+                {var $P24 = 6+18}
+                
+                {var $N1 = "A1"}
+                {var $N2 = "A2"}
+                {var $N3 = "A3"}
+                {var $N4 = "A5"}
+                {var $N5 = "A4"}
+                {var $N6 = "A6"}
+                
+                {var $N7 = "B1"}
+                {var $N8 = "B2"}
+                {var $N9 = "B3"}
+                {var $N10 = "B5"}
+                {var $N11 = "B4"}
+                {var $N12 = "B6"}
+                
+                {var $N13 = "C1"}
+                {var $N14 = "C2"}
+                {var $N15 = "C3"}
+                {var $N16 = "C5"}
+                {var $N17 = "C4"}
+                {var $N18 = "C6"}
+                
+                {var $N19 = "D1"}
+                {var $N20 = "D2"}
+                {var $N21 = "D3"}
+                {var $N22 = "D5"}
+                {var $N23 = "D4"}
+                {var $N24 = "D6"}
+{/if}
+{if $kolo->nazev == "6. kolo"} 
+{var $nazevkola = "6. kolo"}             
+                {var $P1 = 6}
+                {var $P2 = 1}
+                {var $P3 = 5}
+                {var $P4 = 2}
+                {var $P5 = 4}
+                {var $P6 = 3}
+                
+                {var $P7 = 6+6}
+                {var $P8 = 1+6}
+                {var $P9 = 5+6}
+                {var $P10 = 2+6}
+                {var $P11 = 4+6}
+                {var $P12 = 3+6}
+                
+                {var $P13 = 6+12}
+                {var $P14 = 1+12}
+                {var $P15 = 5+12}
+                {var $P16 = 2+12}
+                {var $P17 = 4+12}
+                {var $P18 = 3+12}
+                
+                {var $P19 = 6+18}
+                {var $P20 = 1+18}
+                {var $P21 = 5+18}
+                {var $P22 = 2+18}
+                {var $P23 = 4+18}
+                {var $P24 = 3+18}
+                
+                {var $N1 = "A6"}
+                {var $N2 = "A1"}
+                {var $N3 = "A5"}
+                {var $N4 = "A2"}
+                {var $N5 = "A4"}
+                {var $N6 = "A3"}
+                
+                {var $N7 = "B6"}
+                {var $N8 = "B1"}
+                {var $N9 = "B5"}
+                {var $N10 = "B2"}
+                {var $N11 = "B4"}
+                {var $N12 = "B3"}
+                
+                {var $N13 = "C6"}
+                {var $N14 = "C1"}
+                {var $N15 = "C5"}
+                {var $N16 = "C2"}
+                {var $N17 = "C4"}
+                {var $N18 = "C3"}
+                
+                {var $N19 = "D6"}
+                {var $N20 = "D1"}
+                {var $N21 = "D5"}
+                {var $N22 = "D2"}
+                {var $N23 = "D4"}
+                {var $N24 = "D3"}
+{/if}      
+{if $kolo->nazev == "7. kolo"} 
+{var $nazevkola = "7. kolo"}             
+                {var $P1 = 5}
+                {var $P2 = 1}
+                {var $P3 = 4}
+                {var $P4 = 2}
+                {var $P5 = 6}
+                {var $P6 = 3}
+                
+                {var $P7 = 5+6}
+                {var $P8 = 1+6}
+                {var $P9 = 4+6}
+                {var $P10 = 2+6}
+                {var $P11 = 6+6}
+                {var $P12 = 3+6}
+                
+                {var $P13 = 5+12}
+                {var $P14 = 1+12}
+                {var $P15 = 4+12}
+                {var $P16 = 2+12}
+                {var $P17 = 6+12}
+                {var $P18 = 3+12}
+                
+                {var $P19 = 5+18}
+                {var $P20 = 1+18}
+                {var $P21 = 4+18}
+                {var $P22 = 2+18}
+                {var $P23 = 6+18}
+                {var $P24 = 3+18}
+                
+                {var $N1 = "A5"}
+                {var $N2 = "A1"}
+                {var $N3 = "A4"}
+                {var $N4 = "A2"}
+                {var $N5 = "A6"}
+                {var $N6 = "A3"}
+                
+                {var $N7 = "B5"}
+                {var $N8 = "B1"}
+                {var $N9 = "B4"}
+                {var $N10 = "B2"}
+                {var $N11 = "B6"}
+                {var $N12 = "B3"}
+                
+                {var $N13 = "C5"}
+                {var $N14 = "C1"}
+                {var $N15 = "C4"}
+                {var $N16 = "C2"}
+                {var $N17 = "C6"}
+                {var $N18 = "C3"}
+                
+                {var $N19 = "D5"}
+                {var $N20 = "D1"}
+                {var $N21 = "D4"}
+                {var $N22 = "D2"}
+                {var $N23 = "D6"}
+                {var $N24 = "D3"}
+{/if} 
+{if $kolo->nazev == "8. kolo"}  
+{var $nazevkola = "8. kolo"}            
+                {var $P1 = 4}
+                {var $P2 = 1}
+                {var $P3 = 3}
+                {var $P4 = 2}
+                {var $P5 = 6}
+                {var $P6 = 5}
+                
+                {var $P7 = 4+6}
+                {var $P8 = 1+6}
+                {var $P9 = 3+6}
+                {var $P10 = 2+6}
+                {var $P11 = 6+6}
+                {var $P12 = 5+6}
+                
+                {var $P13 = 4+12}
+                {var $P14 = 1+12}
+                {var $P15 = 3+12}
+                {var $P16 = 2+12}
+                {var $P17 = 6+12}
+                {var $P18 = 5+12}
+                
+                {var $P19 = 4+18}
+                {var $P20 = 1+18}
+                {var $P21 = 3+18}
+                {var $P22 = 2+18}
+                {var $P23 = 6+18}
+                {var $P24 = 5+18}
+                
+                {var $N1 = "A4"}
+                {var $N2 = "A1"}
+                {var $N3 = "A3"}
+                {var $N4 = "A2"}
+                {var $N5 = "A6"}
+                {var $N6 = "A5"}
+                
+                {var $N7 = "B4"}
+                {var $N8 = "B1"}
+                {var $N9 = "B3"}
+                {var $N10 = "B2"}
+                {var $N11 = "B6"}
+                {var $N12 = "B5"}
+                
+                {var $N13 = "C4"}
+                {var $N14 = "C1"}
+                {var $N15 = "C3"}
+                {var $N16 = "C2"}
+                {var $N17 = "C6"}
+                {var $N18 = "C5"}
+                
+                {var $N19 = "D4"}
+                {var $N20 = "D1"}
+                {var $N21 = "D3"}
+                {var $N22 = "D2"}
+                {var $N23 = "D6"}
+                {var $N24 = "D5"}
+{/if} 
+{if $kolo->nazev == "9. kolo"}    
+{var $nazevkola = "9. kolo"}          
+                {var $P1 = 3}
+                {var $P2 = 1}
+                {var $P3 = 6}
+                {var $P4 = 2}
+                {var $P5 = 5}
+                {var $P6 = 4}
+                
+                {var $P7 = 3+6}
+                {var $P8 = 1+6}
+                {var $P9 = 6+6}
+                {var $P10 = 2+6}
+                {var $P11 = 5+6}
+                {var $P12 = 4+6}
+                
+                {var $P13 = 3+12}
+                {var $P14 = 1+12}
+                {var $P15 = 6+12}
+                {var $P16 = 2+12}
+                {var $P17 = 5+12}
+                {var $P18 = 4+12}
+                
+                {var $P19 = 3+18}
+                {var $P20 = 1+18}
+                {var $P21 = 6+18}
+                {var $P22 = 2+18}
+                {var $P23 = 5+18}
+                {var $P24 = 4+18}
+                
+                {var $N1 = "A3"}
+                {var $N2 = "A1"}
+                {var $N3 = "A6"}
+                {var $N4 = "A2"}
+                {var $N5 = "A5"}
+                {var $N6 = "A4"}
+                
+                {var $N7 = "B3"}
+                {var $N8 = "B1"}
+                {var $N9 = "B6"}
+                {var $N10 = "B2"}
+                {var $N11 = "B5"}
+                {var $N12 = "B4"}
+                
+                {var $N13 = "C3"}
+                {var $N14 = "C1"}
+                {var $N15 = "C6"}
+                {var $N16 = "C2"}
+                {var $N17 = "C5"}
+                {var $N18 = "C4"}
+                
+                {var $N19 = "D3"}
+                {var $N20 = "D1"}
+                {var $N21 = "D6"}
+                {var $N22 = "D2"}
+                {var $N23 = "D5"}
+                {var $N24 = "D4"}
+{/if} 
+{if $kolo->nazev == "10. kolo"}   
+{var $nazevkola = "10. kolo"}           
+                {var $P1 = 2}
+                {var $P2 = 1}
+                {var $P3 = 5}
+                {var $P4 = 3}
+                {var $P5 = 6}
+                {var $P6 = 4}
+                
+                {var $P7 = 2+6}
+                {var $P8 = 1+6}
+                {var $P9 = 5+6}
+                {var $P10 = 3+6}
+                {var $P11 = 6+6}
+                {var $P12 = 4+6}
+                
+                {var $P13 = 2+12}
+                {var $P14 = 1+12}
+                {var $P15 = 5+12}
+                {var $P16 = 3+12}
+                {var $P17 = 6+12}
+                {var $P18 = 4+12}
+                
+                {var $P19 = 2+18}
+                {var $P20 = 1+18}
+                {var $P21 = 5+18}
+                {var $P22 = 3+18}
+                {var $P23 = 6+18}
+                {var $P24 = 4+18}
+                
+                {var $N1 = "A2"}
+                {var $N2 = "A1"}
+                {var $N3 = "A5"}
+                {var $N4 = "A3"}
+                {var $N5 = "A6"}
+                {var $N6 = "A4"}
+                
+                {var $N7 = "B2"}
+                {var $N8 = "B1"}
+                {var $N9 = "B5"}
+                {var $N10 = "B3"}
+                {var $N11 = "B6"}
+                {var $N12 = "B4"}
+                
+                {var $N13 = "C2"}
+                {var $N14 = "C1"}
+                {var $N15 = "C5"}
+                {var $N16 = "C3"}
+                {var $N17 = "C6"}
+                {var $N18 = "C4"}
+                
+                {var $N19 = "D2"}
+                {var $N20 = "D1"}
+                {var $N21 = "D5"}
+                {var $N22 = "D3"}
+                {var $N23 = "D6"}
+                {var $N24 = "D4"}
+{/if} 
+            
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P1}<tr class="rozpis"><td>{$N1}</td><td>{$N2}</td><td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P2}<td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P1 AND $tip->zapasy->kola->nazev == $nazevkola } {var $a1+=1}{/if}{/foreach}<td>{$a1}</td><td>:</td>
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P2 AND $tip->zapasy->kola->nazev == $nazevkola} {var $a6+=1}{/if}{/foreach}<td>{$a6}</td></tr>
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P3}<tr class="rozpis"><td>{$N3}</td><td>{$N4}</td><td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P4}<td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P3 AND $tip->zapasy->kola->nazev == $nazevkola} {var $a2+=1}{/if}{/foreach}<td>{$a2}</td><td>:</td>
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P4 AND $tip->zapasy->kola->nazev == $nazevkola} {var $a5+=1}{/if}{/foreach}<td>{$a5}</td></tr>
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P5}<tr class="rozpis"><td>{$N5}</td><td>{$N6}</td><td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P6}<td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P5 AND $tip->zapasy->kola->nazev == $nazevkola} {var $a3+=1}{/if}{/foreach}<td>{$a3}</td><td>:</td>
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P6 AND $tip->zapasy->kola->nazev == $nazevkola} {var $a4+=1}{/if}{/foreach}<td>{$a4}</td></tr>
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P7}<tr><td>{$N7}</td><td>{$N8}</td><td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P8}<td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P7 AND $tip->zapasy->kola->nazev == $nazevkola} {var $b1+=1}{/if}{/foreach}<td>{$b1}</td><td>:</td>
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P8 AND $tip->zapasy->kola->nazev == $nazevkola} {var $b6+=1}{/if}{/foreach}<td>{$b6}</td></tr>
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P9}<tr><td>{$N9}</td><td>{$N10}</td><td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P10}<td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P9 AND $tip->zapasy->kola->nazev == $nazevkola} {var $b2+=1}{/if}{/foreach}<td>{$b2}</td><td>:</td>
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P10 AND $tip->zapasy->kola->nazev == $nazevkola} {var $b5+=1}{/if}{/foreach}<td>{$b5}</td></tr>
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P11}<tr><td>{$N11}</td><td>{$N12}</td><td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P12}<td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P11 AND $tip->zapasy->kola->nazev == $nazevkola} {var $b3+=1}{/if}{/foreach}<td>{$b3}</td><td>:</td>
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P12 AND $tip->zapasy->kola->nazev == $nazevkola} {var $b4+=1}{/if}{/foreach}<td>{$b4}</td></tr>
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P13}<tr class="rozpis"><td>{$N13}</td><td>{$N14}</td><td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P14}<td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P13 AND $tip->zapasy->kola->nazev == $nazevkola} {var $c1+=1}{/if}{/foreach}<td>{$c1}</td><td>:</td>
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P14 AND $tip->zapasy->kola->nazev == $nazevkola} {var $c+=1}{/if}{/foreach}<td>{$c6}</td></tr>
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P15}<tr class="rozpis"><td>{$N15}</td><td>{$N16}</td><td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P16}<td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P15 AND $tip->zapasy->kola->nazev == $nazevkola} {var $c2+=1}{/if}{/foreach}<td>{$c2}</td><td>:</td>
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P16 AND $tip->zapasy->kola->nazev == $nazevkola} {var $c5+=1}{/if}{/foreach}<td>{$c5}</td></tr>
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P17}<tr class="rozpis"><td>{$N17}</td><td>{$N18}</td><td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P18}<td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P17 AND $tip->zapasy->kola->nazev == $nazevkola} {var $c3+=1}{/if}{/foreach}<td>{$c3}</td><td>:</td>
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P18 AND $tip->zapasy->kola->nazev == $nazevkola} {var $c4+=1}{/if}{/foreach}<td>{$c4}</td></tr>
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P19}<tr><td>{$N19}</td><td>{$N20}</td><td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P20}<td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P19 AND $tip->zapasy->kola->nazev == $nazevkola} {var $d1+=1}{/if}{/foreach}<td>{$d1}</td><td>:</td>
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P20 AND $tip->zapasy->kola->nazev == $nazevkola} {var $d+=1}{/if}{/foreach}<td>{$d6}</td></tr>
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P21}<tr><td>{$N21}</td><td>{$N22}</td><td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P22}<td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P21 AND $tip->zapasy->kola->nazev == $nazevkola} {var $d2+=1}{/if}{/foreach}<td>{$d2}</td><td>:</td>
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P22 AND $tip->zapasy->kola->nazev == $nazevkola} {var $d5+=1}{/if}{/foreach}<td>{$d5}</td></tr>
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P23}<tr><td>{$N23}</td><td>{$N24}</td><td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $uzivatele as $uzivatel}{if $uzivatel->id_skupiny == $P24}<td>{$uzivatel->nick}</td>{/if}{/foreach}
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P23 AND $tip->zapasy->kola->nazev == $nazevkola} {var $d3+=1}{/if}{/foreach}<td>{$d3}</td><td>:</td>
+{foreach $tipy as $tip}{if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $P24 AND $tip->zapasy->kola->nazev == $nazevkola} {var $d4+=1}{/if}{/foreach}<td>{$d4}</td></tr>
+
+            </tbody>
+    </table>
+</fieldset>
+{/block}

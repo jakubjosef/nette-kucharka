@@ -1,0 +1,24 @@
+<div id="container">
+    <div id="header"></div>
+    <div id="headerline"></div>
+    <div id="headerimg"></div>
+    <div id="menu">
+      <div id="menuline-left"></div>
+      <div id="menuline-right"></div>
+      <div id="menuline-center">
+        <a href="#">Aktuality</a>
+        <a href="#">Kola</a>
+        <a href="#">Diskuze</a>
+        <a href="#">Aktuality</a>
+        <a href="#">Kola</a>
+        <a href="#">Diskuze</a>
+        <a href="#">Aktuality</a>
+        <a href="#">Kola</a>
+        <a href="#">Diskuze</a>
+      </div>
+    </div>
+    <div id="content">dassad</div>
+    <div id="footer">
+      <div id="footerimg"></div>
+    </div>
+</div>

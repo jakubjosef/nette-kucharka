@@ -1,0 +1,39 @@
+{* This is the welcome page, you can delete it *}
+{block menu}
+  <li><a href="{link Homepage:}">Uvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li class="active"><a href="{link Rozpis:}">Rozpis</a></li>
+    {/block}
+{block content}
+<fieldset>
+    <legend>Rozpis soutěže</legend>
+    <table>
+        <thead>
+        <tr>
+            <th>Kolo:</th>
+            <th>Liga:</th>
+            <th>Pohár:</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach $rozpisy as $rozpis}
+            <tr>
+                <td>{$rozpis->kolo}.</td>
+                <td>{$rozpis->liga}</td>
+                <td>{$rozpis->pohar}</td>
+            </tr>
+        {/foreach}
+        </tbody>
+    </table>
+</fieldset>
+{/block}
+        
+{block scripts}
+{include #parent}
+
+{/block}
+     
+
+{block head}
+
+{/block}

@@ -1,0 +1,1 @@
+[2013-04-03 13-25-08] PDOException: SQLSTATE[42000] [1049] Unknown database 'sazkari' in /storage/emulated/legacy/www/nette/sandbox/libs/Nette/Database/Connection.php:53  @  http://10.0.2.18:8080/nette/sandbox/www/  @@  exception-2013-04-03-13-25-08-c005555d6af267dde1996c8a30b2edba.html

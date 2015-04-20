@@ -1,0 +1,34 @@
+{layout "../@layoutAdmin.latte"}
+{block content1}
+<fieldset>
+    <legend>Kola</legend>
+        <a href="{link Admin:pridatKolo}">Přidat kolo</a>
+    <table>
+        <thead>
+        <tr>
+            <th>Liga</th>
+            <th>Název kola</th>
+            <th>Začátek kola</th>
+            <th>Konec kola</th>
+            <th colspan="3">&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach $kola as $kolo}
+            <tr>
+                <td>{$kolo->ligy->nazev}</td>
+                <td>{$kolo->nazev}</td>
+                <td>{$kolo->zacatek_kola|date:'d.m.Y'}</td>
+                <td>{$kolo->konec_kola|date:'d.m.Y'}</td>
+                {if $today>$kolo->konec_kola && $kolo->vyplaceno==0}
+                    <td><a href="{link Admin:zavriKolo $kolo->id}" onClick="return confirm('Opravdu uzavřít toto kolo?\nBudou vyhodnoceny všechny vsazené tikety!')">Zavřít</a></td>
+                {else}<td></td>
+                {/if}
+                <td><a href="{link Admin:upravKolo $kolo->id}">Upravit</a></td>
+                <td><a href="{link Admin:smazKolo $kolo->id}" onClick="return confirm('Opravdu smazat toto kolo?');">Smazat</a></td>
+            </tr>
+        {/foreach}
+        </tbody>
+    </table>
+</fieldset>
+{/block}

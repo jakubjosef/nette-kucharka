@@ -1,0 +1,45 @@
+{block menu}
+  <li><a href="{link Homepage:default}">Uvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+{/block}
+{block content}
+<fieldset>
+    <legend>Statistika hráčů</legend>
+    <table>
+            <thead>
+            <tr>
+				<th>Pořadí:</th>
+                <th>Jméno:</th>
+                <th>Příjmení:</th>
+                <th>Přezdívka:</th>
+                <th>Úspěšnost:</th>
+            </tr>
+            </thead>
+            <tbody>
+                {var $i = 1}
+            {foreach $uzivatele as $uzivatel}
+                <tr>
+                    {var $pocet = 1}
+                    {var $uspesnost = 0}
+                    {var $pocetZapasu = 1}
+					
+					<td>{$i}.</td>
+                    <td>{$uzivatel->jmeno}</td>
+                    <td>{$uzivatel->prijmeni}</td>
+                    <td>{$uzivatel->nick}</td>
+    {foreach $tipy as $tip}
+    {if $tip->uzivatele_id == $i}{var $pocetZapasu++}{/if}
+    {if ($tip->tip == $tip->vysledek) AND $tip->uzivatele_id == $i} {var $pocet+=1}{/if}
+    {/foreach} 
+    {if ($pocetZapasu > 1) }
+    {var $uspesnost = (($pocet-1)/($pocetZapasu-1))*100} {else} 
+    {var $uspesnost = (($pocet)/($pocetZapasu))*100} 
+    {/if}<td>{round($uspesnost,2)} %</td>                    
+                  {var $i++}
+               </tr>
+            {/foreach}
+            </tbody>
+        </table>
+</fieldset>
+{/block}

@@ -1,0 +1,33 @@
+{block menu}
+  <li><a href="{link Homepage:default}">Uvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+{/block}
+{block content}
+<fieldset>
+    <legend>Tipy</legend>
+    <table>
+            <thead>
+                <tr>
+                    <th colspan="24">Vyber hráče</th>
+                </tr>
+            </thead>
+            <tbody>
+                {var $i = 0}
+                <tr>
+                    {foreach $uzivatele as $uzivatel}
+                {if $i==6 OR $i==12 OR $i==18 }
+                    </tr>
+                    <tr>
+                {/if}{var $i++}
+                    <td><a href="{link Sazkari:tipyZobraz $id_kola ,$uzivatel->id}">{$uzivatel->nick} </a></td>
+                {if $i==24}
+                    </tr>
+                 {/if}
+                    {/foreach}
+            </tbody>
+            
+
+    </table>
+</fieldset>
+{/block}

@@ -1,0 +1,45 @@
+{block menu}
+  <li><a href="{link Homepage:default}">Uvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+{/block}
+{block content}
+  <fieldset>
+      <legend>Moje tipy</legend>
+      <table>
+          <thead>
+            <th>Kolo</th>
+            <th>Zápas</th>
+            <th>Datum a čas tipu</th>
+            <th>Tip</th>
+            <th>Výsledek</th>
+          </thead>
+          <tbody>
+          {foreach $tipy as $tip}
+            <tr>
+                <td>{$tip->zapasy->kola->nazev}</td>
+                <td><a href="{$baseUrl}/sazkari/zapas/{$tip->zapasy->id}">{$tip->zapasy->domaci->nazev} - {$tip->zapasy->hoste->nazev}</a></td>
+                <td>{$tip->timestamp|date:"d.m.Y H:i:s"}</td>
+                <td>
+                    {if $tip->tip==1}
+                    Výhra domacích
+                    {elseif $tip->tip==2}
+                    Výhra hostů
+                    {else}
+                    Remíza
+                    {/if}
+                </td>
+                <td>{if $tip->vysledek==1}<tag class="right">Úspěch</tag>{elseif $tip->vysledek==2}<tag class="wrong">Neúspěch</tag>{else}<tag class="none">Nerozhodnuto</tag>{/if}</td>
+            </tr>
+          {/foreach}
+          </tbody>
+      </table>
+        {if !$pageNavigator->first}
+    <a class="txtCenter" href="{link this, page=>$pageNavigator->page-1}"><< Předchozí  </a>
+        {/if}
+        {if !$pageNavigator->last}
+    <a class="txtCenter" href="{link this, page=>$pageNavigator->page+1}">  Další >></a>
+        {/if}
+  
+  </fieldset>
+ {/block}

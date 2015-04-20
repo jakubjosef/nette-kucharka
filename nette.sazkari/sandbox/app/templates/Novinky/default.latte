@@ -1,0 +1,31 @@
+{* This is the welcome page, you can delete it *}
+{block menu}
+  <li><a href="{link Homepage:}">Uvod</a></li>
+  <li class="active"><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+    {/block}
+{block content}
+<fieldset>
+    <legend>Aktuality</legend>
+        {foreach $news as $new}
+            <p><time>{$new->datetime|date:'j.n.Y - H:i'}</time></br>
+                     {!$new->text}</p>
+        {/foreach}
+        {if !$pageNavigator->first}
+    <a class="textcenter" href="{link this, page=>$pageNavigator->page-1}"><< Předchozí  </a>
+        {/if}
+        {if !$pageNavigator->last}
+    <a class="textcenter" href="{link this, page=>$pageNavigator->page+1}">  Další >></a>
+        {/if}  
+</fieldset>
+{/block}
+        
+{block scripts}
+{include #parent}
+
+{/block}
+     
+
+{block head}
+
+{/block}

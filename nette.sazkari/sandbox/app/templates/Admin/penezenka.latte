@@ -1,0 +1,29 @@
+{layout "../@layoutAdmin.latte"}
+{block content1}
+<fieldset>
+    {foreach $flashes as $flash}
+        <div class="flash {$flash->type}">{$flash->message}</div>
+    {/foreach}
+    <legend>Penezenka</legend>
+    <table>
+        <thead>
+        <tr>
+            <th>Jméno</th>
+            <th>Příjmení</th>
+            <th>Zůstatek</th>
+            <th colspan="1">&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach $uzivatele as $uzivatel}
+            <tr>
+                <td>{$uzivatel->jmeno}</td>
+                <td>{$uzivatel->prijmeni}</td>
+                <td>{$uzivatel->zustatek}</td>
+                <td><a href="{link Admin:upravPenezenku $uzivatel->id}">Upravit</a></td>
+            </tr>
+        {/foreach}
+        </tbody>
+    </table>
+</fieldset>
+{/block}

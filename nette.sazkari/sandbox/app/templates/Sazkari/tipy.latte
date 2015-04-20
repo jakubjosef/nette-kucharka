@@ -1,0 +1,39 @@
+{block menu}
+  <li><a href="{link Homepage:default}">Uvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+{/block}
+{block content}
+  <fieldset>
+      <legend>Tipy - {$kolo->nazev}</legend>
+      <div class="leftpanel">
+          {foreach $kola as $kolo2}
+            <a href="{link Sazkari:tipy $kolo2->id}">{$kolo2->nazev}</a>
+          {/foreach}
+      </div>
+      <div class="tipy">
+    <table>
+        <thead>
+        <tr>
+            <th>Sport</th>
+            <th>Domácí</th>
+            <th>Hosté</th>
+            <th>Datum</th>
+        </tr>
+        </thead>
+        <tbody>
+            {foreach $zapasy as $zapas}
+            <tr>
+                <td>{$zapas->sporty->nazev}</td>
+                <td>{$zapas->domaci->nazev}</td>
+                <td>{$zapas->hoste->nazev}</td>
+                <td>{$zapas->datum|date:'d.m.Y'}</td>
+                <td><a href="{link Sazkari:zapas $zapas->id}">detail</a></td>
+       
+            </tr>
+            {/foreach}
+        </tbody>
+    </table>
+      </div>
+  </fieldset>
+{/block}

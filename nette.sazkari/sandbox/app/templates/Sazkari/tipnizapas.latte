@@ -1,0 +1,11 @@
+{block menu}
+  <li><a href="{link Homepage:default}">Uvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+{/block}
+{block content}
+  <fieldset>
+      <legend>Tipni zápas {$zapas->domaci->nazev} - {$zapas->hoste->nazev}</legend>
+      {control tipToMatch}
+  </fieldset>
+{/block}

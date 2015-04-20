@@ -1,0 +1,65 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+#
+# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
+# http://nette.org/security-warning
+#
+common:
+	parameters:
+		mailer:
+			smtp: true
+			host: 'smtp.gmail.com'
+			port: 465
+			username: 'scholz.pitrs@gmail.com' 
+			password: 
+		database:
+			driver: 'mysql'
+			dsn: 'mysql:host=localhost;dbname=sazkari'
+			user: root
+			password: 
+
+	php:
+		date.timezone: Europe/Prague
+		# zlib.output_compression: yes
+
+	nette:
+		application:
+			errorPresenter: Error
+
+		session:
+			expiration: 14 days
+
+
+	services:
+		nette.mailer: Nette\Mail\SmtpMailer(%mailer%)
+		authenticator: 
+			class: Authenticator
+			arguments: [@database,'uzivatele']
+		database:
+			class: Nette\Database\Connection
+			arguments: [%database.dsn%, %database.user%, %database.password%]
+
+		sazkariRepository: Sazkari\SazkariRepository
+		uzivateleRepository: Sazkari\UzivateleRepository
+		adminRepository: Sazkari\AdminRepository
+		novinkyRepository: Sazkari\NovinkyRepository		
+		rozpisRepository: Sazkari\RozpisRepository		
+		tymyRepository: Sazkari\TymyRepository		
+		uvodRepository: Sazkari\UvodRepository		
+		tipyRepository: Sazkari\TipyRepository		
+		skupinyRepository: Sazkari\SkupinyRepository		
+
+		zapasyRepository: Sazkari\ZapasyRepository		
+		kolaRepository: Sazkari\KolaRepository		
+		ligyRepository: Sazkari\LigyRepository		
+
+		routerFactory: RouterFactory
+		router: @routerFactory::createRouter
+
+
+	factories:
+
+
+production < common:
+
+development < common:

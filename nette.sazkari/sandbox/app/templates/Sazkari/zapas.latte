@@ -1,0 +1,39 @@
+{block menu}
+  <li><a href="{link Homepage:default}">Uvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+{/block}
+{block content}
+  <fieldset>
+      <legend>Detail zápasu</legend>
+      Datum: {$zapas->datum|date:'d.m.Y'}<br/>
+      Kolo: {$zapas->kola->nazev} <br/>
+      Sport: {$zapas->sporty->nazev}<br/>
+       <div id="MatchPreview">
+          <div class="matchLine">
+              {if $zapas->domaci->logo!=""}
+                <img src="{$baseUrl}/images/teams/{$zapas->domaci->logo}"/>
+              {/if}</br>
+              <font size="6px">{$zapas->domaci->nazev}</font> <br/>
+              Handicap: {$zapas->handicap_domacich}
+          </div>
+          <div class="matchLine">
+              <br/>
+              &nbsp;<font size="4px">vs.</font>&nbsp;
+              <br/><br/>
+              {if $tipped}
+                 Tipováno: <strong>{if $tip->tip==1}Výhra domácích{elseif $tip->tip==2}Výhra hostů{else}Remíza{/if}</strong>
+              {else}
+                {if $today<$kolo->konec_kola}
+                  <a href="{link Sazkari:tipniZapas $zapas->id}" class="btn">Tipni zápas</a>
+                {/if}
+              {/if}
+          </div>
+          <div class="matchLine">
+              <img n-ifset="{$zapas->hoste->logo}" src="{$baseUrl}/images/teams/{$zapas->hoste->logo}"/></br>
+              <font size="6px">{$zapas->hoste->nazev}</font> <br/>
+              Handicap: {$zapas->handicap_hostu}
+          </div>
+       </div>
+  </fieldset>
+{/block}

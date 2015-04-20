@@ -1,0 +1,39 @@
+{block menu}
+  <li><a href="{link Homepage:default}">Uvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+{/block}
+{block content}
+  <fieldset>
+      <legend>Tabulky ligy</legend>
+  {foreach $skupiny as $skupina}
+    <table>
+            <thead>
+            <caption>{$skupina["nazev"]}</caption>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Tipér</th>
+                <th>Zápasů</th>
+                <th>Výher</th>
+                <th>Remízy</th>
+                <th>Prohry</th>
+                <th>Bodů</th>
+            </tr>
+            </thead>
+            <tbody>
+                {foreach $skupina["radky"] as $radek}
+                <tr>
+                    <td>{$iterator->counter}</td>
+                    <td>{$radek->uzivatel}</td>
+                    <td>{$radek->zapasy}</td>
+                    <td>{$radek->vyhry}</td>
+                    <td>{$radek->remizy}</td>
+                    <td>{$radek->prohry}</td>
+                    <td>{$radek->body}</td>
+                </tr>
+                {/foreach}
+            </tbody>
+    </table>
+ {/foreach}
+  </fieldset>            
+{/block}

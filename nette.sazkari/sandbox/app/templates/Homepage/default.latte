@@ -1,0 +1,26 @@
+{block menu}
+  <li class="active"><a href="{link Homepage:default}">Úvod</a></li>
+  <li><a href="{link Novinky:}">Aktuality</a></li>
+  <li><a href="{link Rozpis:}">Rozpis</a></li>
+{/block}
+  
+{block content}
+  <fieldset>
+      <legend>Úvodní strana</legend>
+        {foreach $uvod as $uvod1}
+        {!$uvod1->text}
+        Dne: <time>{$uvod1->datum|date:'j.n.Y'}</time>
+        </p>
+        {/foreach}
+</fieldset>
+{/block}
+        
+{block scripts}
+{include #parent}
+
+{/block}
+     
+
+{block head}
+
+{/block}
